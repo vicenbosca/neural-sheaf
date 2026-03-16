@@ -75,6 +75,8 @@ neural-sheaf/
 ├── pyproject.toml
 ├── README.md
 ├── quickstart.py
+├── generate_figures.py
+├── generate_appendix_figures.py
 ├── notebooks/
 │   ├── 01_inference.ipynb
 │   ├── 02_training.ipynb
@@ -99,6 +101,20 @@ neural-sheaf/
 ## Conventions
 
 All tensors use `torch.float64` with shape `(dim, batch_size)`. Weight matrices are `(n_out, n_in)`, matching PyTorch convention. The library is device-agnostic — pass `device='cuda'` to run on GPU.
+
+## Reproducing paper figures
+
+The figures from the paper can be regenerated from the scripts at the repo root:
+```bash
+# Section 6 figures (main text)
+python generate_figures.py              # all figures
+python generate_figures.py --fig 1      # specific figure group (1-4)
+
+# Appendix E figures and tables
+python generate_appendix_figures.py
+```
+
+Outputs go to `figures/`, `figures/appendix/`, and `tables/`.
 
 ## Citation
 
